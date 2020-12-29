@@ -25,6 +25,13 @@ class ShopPage extends React.Component {
     const { updateCollections } = this.props;
     const collectionRef = firestore.collection('collections');
 
+    // Native fetch request will get our collections but will nest the values we need deeply
+    // fetch(
+    //   'https://firestore.googleapis.com/v1/projects/crwn-db-655d1/databases/(default)/documents/collections'
+    // )
+    //   .then((response) => response.json())
+    //   .then((collections) => console.log(collections));
+
     collectionRef.get().then((snapshot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
