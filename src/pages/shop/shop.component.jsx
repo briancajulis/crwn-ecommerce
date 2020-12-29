@@ -50,7 +50,6 @@ class ShopPage extends React.Component {
             <CollectionPageWithSpinner isLoading={loading} {...props} />
           )}
         />
-        />
       </div>
     );
   }
