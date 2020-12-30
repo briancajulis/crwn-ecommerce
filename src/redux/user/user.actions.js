@@ -1,4 +1,3 @@
-import { PAUSE } from 'redux-persist';
 import UserActionTypes from './user.types';
 
 export const setCurrentUser = (user) => {
