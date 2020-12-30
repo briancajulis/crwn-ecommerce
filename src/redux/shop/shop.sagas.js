@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   firestore,
   convertCollectionsSnapshotToMap,
@@ -26,8 +26,8 @@ export function* fetchCollectionsAsync() {
 }
 
 export function* fetchCollectionsStart() {
-  // Every action relating to FETCH_COLLECTIONS_START will fire the function in the 2nd arg
-  yield takeEvery(
+  // If takeLatest ever fires multiple times, the last one most likely has the latest data
+  yield takeLatest(
     ShopActionTypes.FETCH_COLLECTIONS_START,
     fetchCollectionsAsync
   );
